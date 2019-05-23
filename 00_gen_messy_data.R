@@ -18,7 +18,7 @@ make_messy_data <- function(
   mean_age = 40,
   sd_age = 14,
   mean_serum = 90,
-  sd_serum = 30,
+  sd_serum = 0.6,
   na = TRUE,
   seed = 1) {
   
@@ -60,7 +60,7 @@ make_messy_data <- function(
     age = abs(round(rnorm(n = nrow, mean = mean_age, sd = sd_age))),
     area = sample(x = area_m, size = nrow, replace = TRUE),
     immune_status = rpois(n = nrow, lambda = 1),
-    serum_igm = paste(round(replace(rnorm(n = nrow, mean = mean_serum, sd = sd_serum), 
+    serum_igm = paste(round(replace(rlnorm(n = nrow, meanlog = log(mean_serum), sdlog = sd_serum), 
                                     sample(1:nrow,size = 0.05*nrow, replace = TRUE), 
                                     sample(c(-1,-99), size = 0.05*nrow, replace = TRUE)),
                             1), "mg/dL"),
@@ -87,8 +87,8 @@ make_messy_data <- function(
 
 # run function
 df1 <- make_messy_data(nrow = 600, mean_age = 39, sd_age = 10, mean_serum = 90, seed = 1)
-df2 <- make_messy_data(nrow = 200, mean_age = 5, sd_age = 2, mean_serum = 70, sd_serum = 20, seed = 2)
-df3 <- make_messy_data(nrow = 200, mean_age = 60, sd_age = 12, mean_serum = 100, sd_serum = 25, seed = 3)
+df2 <- make_messy_data(nrow = 200, mean_age = 5, sd_age = 2, mean_serum = 70, sd_serum = 0.4, seed = 2)
+df3 <- make_messy_data(nrow = 200, mean_age = 60, sd_age = 12, mean_serum = 100, sd_serum = 0.6, seed = 3)
 
 # export as .csv
 if (!dir.exists(file.path(getwd(), "data"))) dir.create(file.path(getwd(), "data"))
