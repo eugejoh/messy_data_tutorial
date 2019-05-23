@@ -2,6 +2,14 @@
 # Eugene Joh
 # 2019-05-21
 
+# generate random data
+#  - age
+#  - name
+#  - sex
+#  - area
+#  - hypothetical immune status
+#  - hypothetical Ab serum concentration
+
 # install.packages("randomNames")
 library(randomNames)
 
