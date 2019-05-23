@@ -2,11 +2,11 @@
 # Eugene Joh
 # 2019-05-21
 
-library(here)
-library(readr)
-library(dplyr)
-library(tidyr)
-library(visdat)
+library(here) #0.1
+library(readr) #1.3.1
+library(dplyr) #0.7.8
+library(tidyr) #0.8.1
+library(visdat) #0.5.3
 
 # explore '/data' directory
 list.files(here::here("data"))
