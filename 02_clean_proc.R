@@ -56,5 +56,6 @@ data1_v <- data1_v %>%
 # Process the `serum_igm` variable...
 # 1. Create new variables (numerator, denominator) for serum units (mg/dL)
 # 2. Create new variable for serum IgM (numeric) value
-# 3. Create threshold for high serum IgM
+# 3. Create threshold for high serum IgM >200mg/dL
 
+# hint: use previously used code, Google, StackOverflow, other resources
