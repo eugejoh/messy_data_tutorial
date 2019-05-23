@@ -29,8 +29,8 @@ make_messy_data <- function(
     round(vec / sum(vec) * M)
   }
   
-  rand_m <- abs(rand_(3, nrow/2, sd = 3))
-  rand_f <- abs(rand_(4, nrow/2, sd = 2))
+  rand_m <- abs(rand_(2, nrow/2, sd = 3))
+  rand_f <- abs(rand_(2, nrow/2, sd = 2))
   
   area_m <-
     c(
@@ -54,12 +54,9 @@ make_messy_data <- function(
                   randomNames::randomNames(n = round(nrow/2), gender = 1))[1:nrow], 
     sex = c(
       rep("Male", rand_m[1]),
-      rep("M", rand_m[2]),
-      rep("male", rand_m[3]),
+      rep("m", rand_m[2]),
       rep("Female", rand_f[1]),
-      rep("F", rand_f[2]),
-      rep("female", rand_f[3]),
-      rep("f", rand_f[4]))[1:nrow], 
+      rep("F", rand_f[2]))[1:nrow], 
     age = abs(round(rnorm(n = nrow, mean = mean_age, sd = sd_age))),
     area = sample(x = area_m, size = nrow, replace = TRUE),
     immune_status = rpois(n = nrow, lambda = 1),
